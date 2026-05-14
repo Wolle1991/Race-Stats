@@ -169,6 +169,18 @@ function fallbackAvatar(name) {
 function avatarHtml(profile, name, big = false) {
   const image = safeUrl(profile?.image);
   const cls = big ? "avatar bigAvatar" : "avatar";
-  if (!image) return fallbackAvatar(name);
-  return `<img class="${cls}" src="${escapeHtml(image)}" alt="${escapeHtml(name)}" onerror="this.outerHTML='${fallbackAvatar(name).replace(/'/g, "\\'")}'">`;
+  const letter = escapeHtml((name || "?").slice(0, 1).toUpperCase());
+
+  if (!image) {
+    return `<div class="${cls} avatarFallback">${letter}</div>`;
+  }
+
+  return `
+    <img
+      class="${cls}"
+      src="${escapeHtml(image)}"
+      alt="${escapeHtml(name)}"
+      onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=&quot;${cls} avatarFallback&quot;>${letter}</div>');"
+    >
+  `;
 }
