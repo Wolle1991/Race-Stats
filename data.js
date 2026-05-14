@@ -175,12 +175,5 @@ function avatarHtml(profile, name, big = false) {
     return `<div class="${cls} avatarFallback">${letter}</div>`;
   }
 
-  return `
-    <img
-      class="${cls}"
-      src="${escapeHtml(image)}"
-      alt="${escapeHtml(name)}"
-      onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=&quot;${cls} avatarFallback&quot;>${letter}</div>');"
-    >
-  `;
+  return `<img class="${cls}" src="${escapeHtml(image)}" alt="${escapeHtml(name)}">`;
 }
