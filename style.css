@@ -1,0 +1,336 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: radial-gradient(circle at top, #13285a, #071126 45%);
+  color: #f5f7ff;
+}
+
+.wrap {
+  width: min(1180px, calc(100% - 24px));
+  margin: 24px auto;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid #2d3f78;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #101b3a, #0b142d);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+h1 { margin: 0; font-size: clamp(26px, 4vw, 42px); }
+h2 { margin: 0 0 8px; }
+
+.hero p, .muted {
+  margin: 8px 0 0;
+  color: #b8c2e8;
+}
+
+.mutedSmall { color: #b8c2e8; font-size: 13px; }
+
+.nav, .tabbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid #2d3f78;
+  border-radius: 18px;
+  background: rgba(16, 25, 54, .96);
+}
+
+.loginCard { max-width: 520px; margin-left: auto; margin-right: auto; }
+
+.hidden { display: none !important; }
+
+.adminTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.adminTab { margin-top: 18px; }
+
+a { color: #9db7ff; font-weight: 800; text-decoration: none; }
+
+.btn, button {
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 16px;
+  background: #263aa0;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button:hover, .btn:hover { filter: brightness(1.15); }
+
+.tabBtn.active { background: #21a35a; }
+.dangerBtn, .removeBtn { background: #7a1e35; }
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+input, select, textarea {
+  width: 100%;
+  border: 1px solid #334883;
+  border-radius: 12px;
+  background: #071126;
+  color: white;
+  padding: 12px;
+  outline: none;
+  font: inherit;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #cdd6ff;
+  font-weight: 700;
+}
+
+.status { color: #cdd6ff; margin: 12px 0; }
+
+.raceBlock {
+  margin-top: 18px;
+  border: 1px solid #283a72;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.raceHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #16234a;
+}
+
+.raceHead h2 { margin: 0; font-size: 20px; }
+.raceHead span { color: #b8c2e8; }
+
+.tableWrap { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+  padding: 12px 14px;
+  border-top: 1px solid #253866;
+  text-align: left;
+}
+
+th { color: #dbe3ff; background: #111d3f; }
+
+.place, .time { font-weight: 900; }
+.time { color: #21ff78; }
+
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #263aa0;
+  font-weight: 900;
+}
+
+.badge.ff, .badge.dnf { background: #7a1e35; }
+
+.form { display: grid; gap: 16px; }
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.racerRow {
+  display: grid;
+  grid-template-columns: 90px 1fr 150px 130px 44px;
+  gap: 10px;
+  align-items: end;
+  padding: 12px;
+  border: 1px solid #283a72;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  background: #0c1631;
+}
+
+.removeBtn { padding: 12px; }
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.empty { padding: 20px; color: #b8c2e8; }
+
+.playerGrid, .linkGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.playerCard, .linkCard {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #2d3f78;
+  border-radius: 16px;
+  background: #0c1631;
+  color: white;
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.playerCard:hover, .linkCard:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.playerCardTop {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.playerName { font-size: 22px; font-weight: 950; }
+
+.statLine {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.statLine b { font-size: 30px; color: #21ff78; }
+
+.statLine span, .smallStats, .linkCard p, .linkCard span { color: #b8c2e8; }
+
+.medalRow {
+  display: flex;
+  gap: 12px;
+  font-weight: 900;
+}
+
+.smallStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.statBox {
+  padding: 16px;
+  border: 1px solid #2d3f78;
+  border-radius: 16px;
+  background: #0c1631;
+}
+
+.statBox b {
+  display: block;
+  font-size: 28px;
+  color: #21ff78;
+}
+
+.statBox span {
+  color: #b8c2e8;
+  font-weight: 800;
+}
+
+.statBox.gold b { color: #ffd45a; }
+.statBox.silver b { color: #dbe3ff; }
+.statBox.bronze b { color: #d59a68; }
+
+.sectionTitle { margin-top: 20px; margin-bottom: 12px; }
+
+.avatar, .avatarFallback {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid #334883;
+  background: #071126;
+}
+
+.avatarFallback {
+  display: grid;
+  place-items: center;
+  font-weight: 950;
+  font-size: 24px;
+  color: #21ff78;
+}
+
+.bigAvatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 24px;
+}
+
+.profileHeader {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 18px;
+  border: 1px solid #2d3f78;
+  border-radius: 18px;
+  background: #0c1631;
+}
+
+.profileText { flex: 1; }
+.profileText p { color: #dbe3ff; line-height: 1.6; }
+
+.profileLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.discordPill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 12px;
+  padding: 11px 16px;
+  background: #16234a;
+  color: #dbe3ff;
+  font-weight: 800;
+}
+
+.linkCard h2 { margin: 0; }
+
+@media (max-width: 760px) {
+  .hero, .toolbar, .actions, .adminTop, .profileHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav { width: 100%; }
+  .nav .btn { flex: 1; text-align: center; }
+
+  .grid2, .racerRow { grid-template-columns: 1fr; }
+
+  .bigAvatar {
+    width: 100%;
+    height: 220px;
+  }
+}

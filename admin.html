@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div>
+        <h1>Admin Bereich</h1>
+        <p>Races, Racer-Profile und Links verwalten</p>
+      </div>
+      
+<nav class="nav">
+  <a class="btn" href="index.html">Ergebnisse</a>
+  <a class="btn" href="players.html">Racer</a>
+  <a class="btn" href="links.html">Links</a>
+  <a class="btn" href="admin.html">Admin</a>
+</nav>
+
+    </header>
+
+    <section id="loginCard" class="card loginCard">
+      <h2>Admin Login</h2>
+      <p class="muted">Bitte Passwort eingeben.</p>
+      <form id="loginForm" class="form">
+        <label>Passwort
+          <input id="passwordInput" type="password" placeholder="Passwort" autocomplete="current-password" required />
+        </label>
+        <button type="submit">Einloggen</button>
+      </form>
+      <div id="loginStatus" class="status"></div>
+    </section>
+
+    <section id="adminCard" class="card hidden">
+      <div class="adminTop">
+        <div>
+          <h2>Verwaltung</h2>
+          <p class="muted">Wähle aus, was du bearbeiten möchtest.</p>
+        </div>
+        <button type="button" id="logoutBtn" class="dangerBtn">Ausloggen</button>
+      </div>
+
+      <div class="tabbar">
+        <button type="button" class="tabBtn active" data-tab="raceTab">Race eintragen</button>
+        <button type="button" class="tabBtn" data-tab="profileTab">Racer-Profil bearbeiten</button>
+        <button type="button" class="tabBtn" data-tab="linksTab">Links verwalten</button>
+      </div>
+
+      <section id="raceTab" class="adminTab">
+        <h2>Neues Race speichern</h2>
+        <form id="raceForm" class="form">
+          <div class="grid2">
+            <label>Race-Name
+              <input name="race" placeholder="z.B. Weekly Race #12" required />
+            </label>
+            <label>Datum
+              <input name="datum" type="date" required />
+            </label>
+          </div>
+
+          <div id="racers"></div>
+
+          <div class="actions">
+            <button type="button" id="addRacerBtn">+ Racer hinzufügen</button>
+            <button type="submit">Race speichern</button>
+          </div>
+        </form>
+        <div id="adminStatus" class="status"></div>
+      </section>
+
+      <section id="profileTab" class="adminTab hidden">
+        <h2>Racer-Profil bearbeiten</h2>
+        <p class="muted">Für Bilder aus GitHub: Bild in den Ordner <b>images</b> hochladen und hier z.B. <b>images/wolle_91.png</b> eintragen.</p>
+        <form id="profileForm" class="form">
+          <div class="grid2">
+            <label>Racer-Name
+              <input name="name" placeholder="z.B. Wolle_91" required />
+            </label>
+            <label>Profilbild
+              <input name="image" placeholder="z.B. images/wolle_91.png oder https://..." />
+            </label>
+          </div>
+          <div class="grid2">
+            <label>Twitch
+              <input name="twitch" placeholder="https://twitch.tv/deinname" />
+            </label>
+            <label>Discord
+              <input name="discord" placeholder="z.B. wolle_91 oder Discord Invite" />
+            </label>
+          </div>
+          <label>Beschreibung / Textfeld
+            <textarea name="bio" rows="5" placeholder="Hier kannst du etwas über den Racer schreiben..."></textarea>
+          </label>
+          <button type="submit">Profil speichern</button>
+        </form>
+        <div id="profileStatus" class="status"></div>
+      </section>
+
+      <section id="linksTab" class="adminTab hidden">
+        <h2>Link hinzufügen</h2>
+        <form id="linkForm" class="form">
+          <div class="grid2">
+            <label>Titel
+              <input name="title" placeholder="z.B. Mudora Cup" required />
+            </label>
+            <label>URL
+              <input name="url" placeholder="https://..." required />
+            </label>
+          </div>
+          <label>Beschreibung
+            <textarea name="description" rows="3" placeholder="Kurze Beschreibung des Links..."></textarea>
+          </label>
+          <button type="submit">Link speichern</button>
+        </form>
+        <div id="linkStatus" class="status"></div>
+      </section>
+    </section>
+  </main>
+
+  <template id="racerTemplate">
+    <div class="racerRow">
+      <label>Platz
+        <input name="platz" type="number" min="1" required />
+      </label>
+      <label>Name
+        <input name="name" placeholder="Racername" required />
+      </label>
+      <label>Zeit
+        <input name="zeit" placeholder="1:37:18.0" />
+      </label>
+      <label>Status
+        <select name="status">
+          <option value="FINISH">FINISH</option>
+          <option value="FF">FF</option>
+          <option value="DNF">DNF</option>
+        </select>
+      </label>
+      <button type="button" class="removeBtn">×</button>
+    </div>
+  </template>
+
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

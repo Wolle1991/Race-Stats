@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zelda Rando Race Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div>
+        <h1>Zelda Rando Race Hub</h1>
+        <p>Ergebnisse, Ranglisten und Racer-Profile</p>
+      </div>
+      
+<nav class="nav">
+  <a class="btn" href="index.html">Ergebnisse</a>
+  <a class="btn" href="players.html">Racer</a>
+  <a class="btn" href="links.html">Links</a>
+  <a class="btn" href="admin.html">Admin</a>
+</nav>
+
+    </header>
+
+    <section class="card">
+      <div class="toolbar">
+        <input id="searchInput" placeholder="Suche nach Racer, Race oder Datum..." />
+        <button id="reloadBtn">Neu laden</button>
+      </div>
+      <div id="statusBox" class="status">Lade Ergebnisse...</div>
+      <div id="results"></div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
