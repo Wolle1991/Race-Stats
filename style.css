@@ -186,15 +186,20 @@ th { color: #dbe3ff; background: #111d3f; }
   gap: 14px;
 }
 
-.playerCard, .linkCard {
-  display: grid;
-  gap: 10px;
+.playerCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
   padding: 16px;
   border: 1px solid #2d3f78;
   border-radius: 16px;
   background: #0c1631;
   color: white;
+
   transition: transform .15s ease, filter .15s ease;
+
+  min-height: 220px;
 }
 
 .playerCard:hover, .linkCard:hover {
@@ -204,8 +209,8 @@ th { color: #dbe3ff; background: #111d3f; }
 
 .playerCardTop {
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: 14px;
 }
 
 .playerName { font-size: 22px; font-weight: 950; }
@@ -264,13 +269,24 @@ th { color: #dbe3ff; background: #111d3f; }
 
 .sectionTitle { margin-top: 20px; margin-bottom: 12px; }
 
-.avatar, .avatarFallback {
-  width: 58px;
-  height: 58px;
+.avatar,
+.avatarFallback {
+  width: 64px;
+  height: 64px;
+
+  min-width: 64px;
+  min-height: 64px;
+
+  max-width: 64px;
+  max-height: 64px;
+
   border-radius: 16px;
   object-fit: cover;
+
   border: 2px solid #334883;
   background: #071126;
+
+  overflow: hidden;
 }
 
 .avatarFallback {
