@@ -3,6 +3,16 @@ const profileEl = document.getElementById("profile");
 const playerTitle = document.getElementById("playerTitle");
 const playerSub = document.getElementById("playerSub");
 
+function createBigAvatar(profile, name) {
+  const src = avatarSrc(profile);
+
+  if (src) {
+    return `<img class="avatar bigAvatar" src="${escapeHtml(src)}" alt="${escapeHtml(name)}">`;
+  }
+
+  return `<div class="avatar bigAvatar avatarFallback">${escapeHtml((name || "?").slice(0, 1).toUpperCase())}</div>`;
+}
+
 const params = new URLSearchParams(location.search);
 const playerName = params.get("name") || "";
 
@@ -20,7 +30,7 @@ function renderProfile(player, profile) {
 
   profileEl.innerHTML = `
     <section class="profileHeader">
-      ${avatarHtml(profile, player.name, true)}
+      ${createBigAvatar(profile, player.name)}
       <div class="profileText">
         <h2>${escapeHtml(player.name)}</h2>
         ${profile.bio ? `<p>${escapeHtml(profile.bio).replaceAll("\n", "<br>")}</p>` : `<p class="muted">Noch keine Beschreibung eingetragen.</p>`}
