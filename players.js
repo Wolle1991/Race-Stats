@@ -3,6 +3,16 @@ const statusBox = document.getElementById("statusBox");
 const playerSearch = document.getElementById("playerSearch");
 const reloadBtn = document.getElementById("reloadBtn");
 
+function createAvatar(profile, name) {
+  const src = avatarSrc(profile);
+
+  if (src) {
+    return `<img class="avatar" src="${escapeHtml(src)}" alt="${escapeHtml(name)}">`;
+  }
+
+  return `<div class="avatar avatarFallback">${escapeHtml((name || "?").slice(0, 1).toUpperCase())}</div>`;
+}
+
 let allPlayers = [];
 let profiles = {};
 
@@ -25,7 +35,7 @@ function renderPlayers(players) {
         return `
         <a class="playerCard" href="${playerUrl(p.name)}">
           <div class="playerCardTop">
-            ${avatarHtml(profile, p.name)}
+            ${createAvatar(profile, p.name)}
             <div>
               <div class="playerName">${escapeHtml(p.name)}</div>
               ${profile.discord ? `<div class="mutedSmall">Discord: ${escapeHtml(profile.discord)}</div>` : ""}
